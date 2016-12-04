@@ -10,7 +10,7 @@ import { Hero } from './hero';
     selector: 'my-hero-detail',
     moduleId: module.id,
     templateUrl: 'hero-detail.component.html',
-    styleUrls: [ 'hero-detail.component.css'],
+    styleUrls: ['hero-detail.component.css'],
 })
 
 export class HeroDetailComponent implements OnInit {
@@ -29,6 +29,11 @@ export class HeroDetailComponent implements OnInit {
 
     @Input()
     hero: Hero;
+
+    save(): void {
+        this.heroService.update(this.hero)
+            .then(() => this.goBack());
+    }
 
 
     goBack(): void {
